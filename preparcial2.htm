@@ -1,0 +1,42 @@
+<input type=text size=2 id='tx'/>
+<button onclick='main()'>Ejecutar</button>
+<canvas id='canvas'width=1000 height=1000></canvas>
+<script>
+	var ctx;
+
+function color(r, g, b) {
+        return 'rgba(' + r*2.55 + ',' + g*2.55 + ',' + b*2.55 + ')'
+	}
+
+	function main(){
+
+		var canvas = document.getElementById('canvas')
+		var ctx = canvas.getContext('2d');
+
+		var a = parseInt(document.getElementById('tx').value)//se conecta el cuadro de texto 
+		
+			for( j=0 ; j<3 ; j++ ;){//ciclo for para el manejo del color del rectangulo y la creacion los mismos
+
+				for( i=0 ; i<a ; i++ ;){//ciclo for para manejar cantidad de los rectangulos
+
+					if(j==0){//para el manejo del color rojo
+
+						ctx.fillStyle=color(100*(i-a)/i,0,0)
+
+					}else if(j==1){//para el manejo del color verde
+
+						ctx.fillStyle=color(0,100*(i-a),0)
+
+					}else if(j==2){//para el manejo del color azul
+
+						ctx.fillStyle=color(0,0,100*(i-a))
+
+					}
+
+					ctx.fillRect( j*100 ; i*500/a, 100 , 500/a )
+
+	}	
+
+}	
+
+</script>
