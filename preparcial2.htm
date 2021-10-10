@@ -1,6 +1,6 @@
 <input type=text size=2 id='tx'/>
 <button onclick='main()'>Ejecutar</button>
-<canvas id='canvas'width=1000 height=1000></canvas>
+<canvas id='can'width=500 height=500></canvas>
 <script>
 	var ctx;
 
@@ -10,33 +10,32 @@ function color(r, g, b) {
 
 	function main(){
 
-		var canvas = document.getElementById('canvas')
+		var canvas = document.getElementById('can')
 		var ctx = canvas.getContext('2d');
-
-		var a = parseInt(document.getElementById('tx').value)//se conecta el cuadro de texto 
 		
-			for( j=0 ; j<3 ; j++ ;){//ciclo for para el manejo del color del rectangulo y la creacion los mismos
+		var a = parseInt(document.getElementById('tx').value)/*se conecta el cuadro de texto*/
 
-				for( i=0 ; i<a ; i++ ;){//ciclo for para manejar cantidad de los rectangulos
+			for( j=0 ; j<3 ; j++ ){/*ciclo for para el manejo del color del rectangulo y la creacion los mismos*/
 
-					if(j==0){//para el manejo del color rojo
+				for( i=0 ; i<a ; i++ ){/*ciclo for para manejar cantidad de los rectangulos*/
 
-						ctx.fillStyle=color(100*(i-a)/i,0,0)
+					if(j==0){/*para el manejo del color rojo*/
 
-					}else if(j==1){//para el manejo del color verde
+						ctx.fillStyle=color(100*(a-i)/a,0,0)
 
-						ctx.fillStyle=color(0,100*(i-a),0)
+					}else if(j==1){/*para el manejo del color verde*/
 
-					}else if(j==2){//para el manejo del color azul
+						ctx.fillStyle=color(0,100*(a-i)/a,0)
 
-						ctx.fillStyle=color(0,0,100*(i-a))
+					}else if(j==2){/*para el manejo del color azul*/
+
+						ctx.fillStyle=color(0,0,100*(a-i)/a )
 
 					}
 
-					ctx.fillRect( j*100 ; i*500/a, 100 , 500/a )
-
-	}	
-
-}	
+					ctx.fillRect( j*100 , i*500/a, 90 , 500/a )
+			}
+                }
+        }
 
 </script>
